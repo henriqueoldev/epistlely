@@ -1,0 +1,128 @@
+<div class="pagesController">
+  <div>
+    <button id="previousPageBtn"
+      ><i class="bi bi-arrow-left-circle-fill"></i></button
+    >
+    <button id="nextPageBtn"
+      ><i class="bi bi-arrow-right-circle-fill"></i></button
+    >
+  </div>
+  <div>
+    <button id="fontResizeUpBtn"><i class="bi bi-dash-circle-fill"></i></button>
+    <button id="fontResizeDownBtn"
+      ><i class="bi bi-plus-circle-fill"></i></button
+    >
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("nextPageBtn")?.addEventListener("click", nextPage);
+    document
+      .getElementById("previousPageBtn")
+      ?.addEventListener("click", previousPage);
+    document
+      .getElementById("fontResizeUpBtn")
+      ?.addEventListener("click", fontResizeDown);
+    document
+      .getElementById("fontResizeDownBtn")
+      ?.addEventListener("click", fontResizeUp);
+  });
+  function getActivePage() {
+    const bookData = document.getElementById("bookData");
+    let activePage = "" + localStorage.getItem("" + bookData?.dataset.bookid);
+    if (activePage == "0" || !activePage) {
+      localStorage.setItem("" + bookData?.dataset.bookid, "1");
+    }
+    return "" + localStorage.getItem("" + bookData?.dataset.bookid);
+  }
+  function nextPage() {
+    const bookData = document.getElementById("bookData");
+    let activePage = getActivePage();
+    let newPage = Number(activePage) + 1;
+    updatePage(activePage, "" + newPage);
+    if (activePage == "" + bookData?.dataset.pages) {
+      localStorage.setItem("" + bookData?.dataset.bookid, "1");
+      updatePage(activePage, "1");
+    } else {
+      localStorage.setItem("" + bookData?.dataset.bookid, "" + newPage);
+    }
+  }
+  function previousPage() {
+    const bookData = document.getElementById("bookData");
+    let activePage = getActivePage();
+    let newPage = Number(activePage) - 1;
+    if (activePage != "1") {
+      updatePage(activePage, "" + newPage);
+      localStorage.setItem("" + bookData?.dataset.bookid, "" + newPage);
+    } else {
+      updatePage(activePage, "" + bookData?.dataset.pages);
+      localStorage.setItem(
+        "" + bookData?.dataset.bookid,
+        "" + bookData?.dataset.pages
+      );
+    }
+  }
+  function updatePage(activePage = "", newPage = "") {
+    document.getElementById("bkpage" + activePage)?.classList.remove("show");
+    document.getElementById("bkpage" + newPage)?.classList.add("show");
+  }
+
+  function fontResizeUp() {
+    const bookPages = document.querySelectorAll(".bookPage");
+    bookPages.forEach((page) => {
+      (page as HTMLElement).style.fontSize =
+        Number(getComputedStyle(page).fontSize.replace("px", "")) + 2 + "px";
+    });
+  }
+  function fontResizeDown() {
+    const bookPages = document.querySelectorAll(".bookPage");
+    bookPages.forEach((page) => {
+      (page as HTMLElement).style.fontSize =
+        Number(getComputedStyle(page).fontSize.replace("px", "")) - 2 + "px";
+    });
+  }
+</script>
+
+<style>
+  .pagesController {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .pagesController div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .pagesController button {
+    padding: 1rem;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border: solid 1px var(--text-color);
+    border-radius: 50%;
+  }
+
+  .pagesController button:hover {
+    color: var(--secondary-color);
+    cursor: pointer;
+  }
+
+  .pagesController button:active {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+</style>

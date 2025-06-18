@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import booksData from "../config/books.json";
 import BookPage from "../components/BookPage.astro";
+import PagesController from "../components/PagesController.astro";
 const bookId = Astro.url.searchParams.get("id") || "";
 var bookName = "";
 
@@ -19,7 +20,7 @@ var count = 0;
 ---
 
 <Layout>
-  <div id="bookData" data-bookName={bookName} data-bookId={bookId}></div>
+  <div id="bookData" data-bookName={bookName} data-bookId={bookId} data-pages={filteredBookPages.length}></div>
   {
     filteredBookPages.map((page) => {
       count += 1;
@@ -31,6 +32,7 @@ var count = 0;
       );
     })
   }
+  <PagesController></PagesController>
 </Layout>
 
 <script>
