@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import booksData from "../config/books.json";
+import BookPage from "../components/BookPage.astro";
+const bookId = Astro.url.searchParams.get("id") || "";
+var bookName = "";
+
+booksData.map((book) => {
+  if (book.path == bookId) {
+    bookName = book.title;
+  }
+});
+
+const allBookPages = await Astro.glob("../books/**/*.md");
+const filteredBookPages = allBookPages.filter((page) =>
+  page.file.includes(bookId)
+);
+var count = 0;
+---
+
+<Layout>
+  <div id="bookData" data-bookName={bookName} data-bookId={bookId}></div>
+  {
+    filteredBookPages.map((page) => {
+      count += 1;
+      const Content = page.Content;
+      return (
+        <BookPage pageId={"bkpage" + count}>
+          <Content />
+        </BookPage>
+      );
+    })
+  }
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookData = document.getElementById("bookData");
+    const headerTitle = document.getElementById("headerTitle");
+    var activePage
+    if (headerTitle) {
+      headerTitle.innerHTML +=
+        "<p class='fade-in'>" + bookData?.dataset.bookname + "</p>";
+
+      document.title += " - " + bookData?.dataset.bookname;
+    }
+
+    //Pages control
+    activePage = "" + localStorage.getItem("" + bookData?.dataset.bookid);
+    if (activePage == "0" || !activePage) {
+      localStorage.setItem("" + bookData?.dataset.bookid, "1");
+    }
+    document.getElementById("bkpage" + activePage)?.classList.add('show');
+  });
+</script>

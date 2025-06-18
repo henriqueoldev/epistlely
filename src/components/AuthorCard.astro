@@ -1,0 +1,49 @@
+---
+import authorData from '../config/author.json'
+---
+
+<section>
+    <div class="authorCard">
+        <div class="authorPic">
+            <img src={authorData.profilepic} alt="">
+        </div>
+        <div class="authorMemo">
+            <h3>{authorData.name}</h3>
+            <p>{authorData.description}</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section{
+        min-height: 79vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .authorCard{
+        max-width: 600px;
+        background-color: var(--primary-color);
+        padding: 1rem;
+        border-radius: .5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .authorPic img{
+        width: 256px;
+        height: 256px;
+        object-fit: fill;
+        border-radius: 50%;
+    }
+
+    .authorCard h3{
+        text-align: center;
+    }
+
+    .authorCard p{
+        text-align: justify;
+    }
+</style>

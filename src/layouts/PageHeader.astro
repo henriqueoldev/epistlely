@@ -1,0 +1,23 @@
+---
+import authorData from "../config/author.json";
+import Navigation from "../components/Nav.astro";
+---
+
+<header>
+  <div id="headerTitle">
+    <h1>{authorData.name}</h1>
+  </div>
+  <Navigation />
+</header>
+
+<style>
+  header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    height: 10vh;
+  }
+
+</style>

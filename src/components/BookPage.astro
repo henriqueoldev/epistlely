@@ -1,0 +1,18 @@
+---
+const { pageId } = Astro.props;
+---
+
+<div class="bookPage" id={pageId}>
+    <slot />
+</div>
+
+<style>
+    .bookPage{
+        width: 600px;
+        text-align: justify;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        border-radius: .5rem;
+        display: none;
+    }
+</style>
