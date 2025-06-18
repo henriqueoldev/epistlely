@@ -1,0 +1,91 @@
+---
+import AuthorCard from "./AuthorCard.astro";
+import authorData from "../config/author.json";
+---
+
+<section class="menubg">
+  <div id="menu">
+    <div class="menuAuthor">
+      <div class="closeBtnDiv">
+        <button id="closeBtn"><i class="bi bi-x-square-fill"></i></button>
+      </div>
+      <a href="/Author">
+        <div class="authorInfo">
+          <div>
+            <img src={authorData.profilepic} alt="Author Picture" />
+            <h3>{authorData.name}</h3>
+          </div>
+          <i class="bi bi-info-square-fill"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .menubg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    z-index: 2;
+  }
+  #menu {
+    width: 32%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow: hidden;
+  }
+
+  .authorInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .authorInfo div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #menu button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .closeBtnDiv{
+    margin: -1rem -1rem 0 -1rem;
+  }
+
+  .menuAuthor {
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    transition: all linear 0.1s;
+  }
+
+  .menuAuthor:hover {
+    box-shadow: 3px 0px 3px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  .menuAuthor img {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 0.3rem;
+  }
+</style>
