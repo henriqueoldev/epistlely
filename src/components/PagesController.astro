@@ -45,6 +45,11 @@
       localStorage.setItem("" + bookData?.dataset.bookid, "1");
       updatePage(activePage, activePage);
     }
+    if (pageCounter) {
+      if (pageCounter.innerHTML == "null" || pageCounter.innerHTML == "NaN") {
+        pageCounter.innerHTML = "1";
+      }
+    }
   });
   function getActivePage() {
     const bookData = document.getElementById("bookData");
