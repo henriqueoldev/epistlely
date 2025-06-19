@@ -62,7 +62,6 @@
   }
   function nextPage() {
     const bookData = document.getElementById("bookData");
-    const pageCounter = document.getElementById("pageCounter");
     let activePage = getActivePage();
     let newPage = Number(activePage) + 1;
     updatePage(activePage, "" + newPage);
@@ -72,14 +71,9 @@
     } else {
       localStorage.setItem("" + bookData?.dataset.bookid, "" + newPage);
     }
-    if (pageCounter) {
-      pageCounter.innerHTML =
-        "" + localStorage.getItem("" + bookData?.dataset.bookid);
-    }
   }
   function previousPage() {
     const bookData = document.getElementById("bookData");
-    const pageCounter = document.getElementById("pageCounter");
     let activePage = getActivePage();
     let newPage = Number(activePage) - 1;
     if (activePage != "1") {
@@ -92,14 +86,14 @@
         "" + bookData?.dataset.pages
       );
     }
-    if (pageCounter) {
-      pageCounter.innerHTML =
-        "" + localStorage.getItem("" + bookData?.dataset.bookid);
-    }
   }
   function updatePage(activePage = "", newPage = "") {
     document.getElementById("bkpage" + activePage)?.classList.remove("show");
     document.getElementById("bkpage" + newPage)?.classList.add("show");
+    const pageCounter = document.getElementById("pageCounter");
+    if (pageCounter) {
+      pageCounter.innerHTML = newPage;
+    }
   }
 
   function fontResizeUp() {
