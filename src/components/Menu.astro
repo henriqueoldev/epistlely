@@ -43,6 +43,11 @@ import books from "../config/books.json";
     document.getElementById("menubg")?.classList.remove("showf");
     document.getElementById("menu")?.classList.remove("slide-right");
   });
+  const menubg = document.getElementById("menubg");
+  menubg?.addEventListener("click", () => {
+    document.getElementById("menubg")?.classList.remove("showf");
+    document.getElementById("menu")?.classList.remove("slide-right");
+  });
 </script>
 
 <style>
