@@ -13,13 +13,18 @@ import Btn from "../components/btn_func.astro";
 
   const btnHome = document.getElementById("btnHome");
   btnHome?.addEventListener("click", common.redirectHome);
+  const btnMenu = document.getElementById("btnMenu");
+  btnMenu?.addEventListener("click", () => {
+    document.getElementById("menubg")?.classList.add("showf");
+    document.getElementById("menu")?.classList.add("slide-right");
+  });
 </script>
 
 <style>
-    nav{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .5rem;
-    }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 </style>

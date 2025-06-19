@@ -28,8 +28,16 @@ a{
   animation: fade-in .3s forwards;
 }
 
+.slide-right{
+  animation: slide-right .5s forwards;
+}
+
 .show{
   display: block !important;
+}
+
+.showf{
+  display: flex !important;
 }
 
 @keyframes fade-in {
@@ -38,5 +46,14 @@ a{
   }
   100%{
     opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0%);
   }
 }

@@ -3,7 +3,7 @@ import "../styles/default.css";
 
 const { cover, title, description, path } = Astro.props;
 ---
-<button onclick={"sessionStorage.setItem('book', '"+ path +"'); window.location.href = '/Book?id=" + path + "'"} class="wCard">
+<button onclick={"window.location.href = '/Book?id=" + path + "'"} class="wCard">
   <div class="imgDiv">
     <img src={"/covers/" + cover} alt={title + " Cover"} />
   </div>

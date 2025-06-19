@@ -3,6 +3,7 @@
     <button id="previousPageBtn"
       ><i class="bi bi-arrow-left-circle-fill"></i></button
     >
+    <p id="pageCounter">1</p>
     <button id="nextPageBtn"
       ><i class="bi bi-arrow-right-circle-fill"></i></button
     >
@@ -17,6 +18,8 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    const bookData = document.getElementById("bookData");
+    const pageCounter = document.getElementById("pageCounter");
     document.getElementById("nextPageBtn")?.addEventListener("click", nextPage);
     document
       .getElementById("previousPageBtn")
@@ -27,6 +30,10 @@
     document
       .getElementById("fontResizeDownBtn")
       ?.addEventListener("click", fontResizeUp);
+    if (pageCounter) {
+      pageCounter.innerHTML =
+        "" + localStorage.getItem("" + bookData?.dataset.bookid);
+    }
   });
   function getActivePage() {
     const bookData = document.getElementById("bookData");
@@ -38,6 +45,7 @@
   }
   function nextPage() {
     const bookData = document.getElementById("bookData");
+    const pageCounter = document.getElementById("pageCounter");
     let activePage = getActivePage();
     let newPage = Number(activePage) + 1;
     updatePage(activePage, "" + newPage);
@@ -47,9 +55,14 @@
     } else {
       localStorage.setItem("" + bookData?.dataset.bookid, "" + newPage);
     }
+    if (pageCounter) {
+      pageCounter.innerHTML =
+        "" + localStorage.getItem("" + bookData?.dataset.bookid);
+    }
   }
   function previousPage() {
     const bookData = document.getElementById("bookData");
+    const pageCounter = document.getElementById("pageCounter");
     let activePage = getActivePage();
     let newPage = Number(activePage) - 1;
     if (activePage != "1") {
@@ -61,6 +74,10 @@
         "" + bookData?.dataset.bookid,
         "" + bookData?.dataset.pages
       );
+    }
+    if (pageCounter) {
+      pageCounter.innerHTML =
+        "" + localStorage.getItem("" + bookData?.dataset.bookid);
     }
   }
   function updatePage(activePage = "", newPage = "") {

@@ -1,9 +1,9 @@
 ---
-import AuthorCard from "./AuthorCard.astro";
 import authorData from "../config/author.json";
+import books from "../config/books.json";
 ---
 
-<section class="menubg">
+<section id="menubg" class="menubg">
   <div id="menu">
     <div class="menuAuthor">
       <div class="closeBtnDiv">
@@ -19,8 +19,31 @@ import authorData from "../config/author.json";
         </div>
       </a>
     </div>
+    <div class="menuBookList">
+      {
+        books.map((book) => {
+          return (
+            <div
+              class="menuBook"
+              onclick={"window.location.href = '/Book?id=" + book.path + "'"}
+            >
+              <p>{book.title}</p>
+              <i class="bi bi-bookmark-fill" />
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </section>
+
+<script>
+  const btnCloseMenu = document.getElementById("closeBtn");
+  btnCloseMenu?.addEventListener("click", () => {
+    document.getElementById("menubg")?.classList.remove("showf");
+    document.getElementById("menu")?.classList.remove("slide-right");
+  });
+</script>
 
 <style>
   .menubg {
@@ -29,10 +52,11 @@ import authorData from "../config/author.json";
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: right !important;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(1px);
     z-index: 2;
+    display: none;
   }
   #menu {
     width: 32%;
@@ -67,7 +91,7 @@ import authorData from "../config/author.json";
     padding: 1rem;
   }
 
-  .closeBtnDiv{
+  .closeBtnDiv {
     margin: -1rem -1rem 0 -1rem;
   }
 
@@ -87,5 +111,27 @@ import authorData from "../config/author.json";
     height: 82px;
     object-fit: cover;
     border-radius: 0.3rem;
+  }
+
+  .menuBookList{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+  }
+
+  .menuBook {
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease-out .2s;
+  }
+
+  .menuBook:hover{
+    translate: .5rem 0;
+    cursor: pointer;
   }
 </style>
