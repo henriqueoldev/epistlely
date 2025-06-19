@@ -20,6 +20,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     const bookData = document.getElementById("bookData");
     const pageCounter = document.getElementById("pageCounter");
+    let activePage = "" + localStorage.getItem("" + bookData?.dataset.bookid);
     document.getElementById("nextPageBtn")?.addEventListener("click", nextPage);
     document
       .getElementById("previousPageBtn")
@@ -34,11 +35,27 @@
       pageCounter.innerHTML =
         "" + localStorage.getItem("" + bookData?.dataset.bookid);
     }
+
+    if (
+      activePage == "0" ||
+      !activePage ||
+      activePage == "null" ||
+      activePage == null
+    ) {
+      localStorage.setItem("" + bookData?.dataset.bookid, "1");
+      updatePage(activePage, activePage);
+    }
   });
   function getActivePage() {
     const bookData = document.getElementById("bookData");
     let activePage = "" + localStorage.getItem("" + bookData?.dataset.bookid);
-    if (activePage == "0" || !activePage) {
+    if (
+      activePage == "0" ||
+      activePage == "NaN" ||
+      !activePage ||
+      activePage == "null" ||
+      activePage == null
+    ) {
       localStorage.setItem("" + bookData?.dataset.bookid, "1");
     }
     return "" + localStorage.getItem("" + bookData?.dataset.bookid);
