@@ -12,6 +12,27 @@ import "../styles/default.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <!--Meta-Tags-->
+    <!-- Open Graph -->
+    <meta property="og:title" content={authorData.name} />
+    <meta property="og:description" content={authorData.description} />
+    <meta property="og:image" content={authorData.profilepic} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Literary Works" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={authorData.name} />
+    <meta name="twitter:description" content={authorData.description} />
+    <meta name="twitter:image" content={authorData.profilepic} />
+    <meta name="twitter:site" content="@literaryworks" />
+    <meta name="twitter:creator" content="@literaryworks" />
+    <!-- Schema.org (Google) -->
+    <meta itemprop="name" content={authorData.name} />
+    <meta itemprop="description" content={authorData.description} />
+    <meta itemprop="image" content={authorData.profilepic} />
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
 
     <title>{authorData.name}</title>
   </head>
