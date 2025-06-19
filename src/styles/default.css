@@ -1,59 +1,75 @@
 :root {
-    --primary-color: #AAA;
-    --secondary-color: #DDD;
-    --text-color: #111;
-    --font-size: 16px;
+  --font-size: 16px;
+  color: var(--text-color);
 }
 
-a{
+[data-theme="dark"] {
+  --primary-color: #333;
+  --secondary-color: #111;
+  --text-color: #ddd;
+  --icons-color: #fff;
+}
+
+[data-theme="light"] {
+  --primary-color: #aaa;
+  --secondary-color: #ddd;
+  --text-color: #222;
+  --icons-color: #222;
+}
+
+a {
   text-decoration: none;
   color: var(--text-color);
 }
 
+i{
+  color: var(--icons-color) !important;
+}
+
 @font-face {
-  font-family: 'OpenSans';
-  src: url('/Fonts/OpenSans-Regular.ttf') format('ttf');
+  font-family: "OpenSans";
+  src: url("/Fonts/OpenSans-Regular.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'OpenSans', Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "OpenSans", Arial, Helvetica, sans-serif;
 }
 
-.fade-in{
-  animation: fade-in .3s forwards;
+.fade-in {
+  animation: fade-in 0.3s forwards;
 }
 
-.slide-right{
-  animation: slide-right .5s forwards;
+.slide-right {
+  animation: slide-right 0.5s forwards;
 }
 
-.show{
+.show {
   display: block !important;
 }
 
-.showf{
+.showf {
   display: flex !important;
 }
 
 @keyframes fade-in {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes slide-right {
-  0%{
+  0% {
     transform: translateX(100%);
   }
-  100%{
+  100% {
     transform: translateX(0%);
   }
 }

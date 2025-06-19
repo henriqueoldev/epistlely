@@ -4,12 +4,33 @@ import Btn from "../components/btn_func.astro";
 
 <nav>
   <Btn id="btnHome" icon="bi bi-house-fill" />
-  <Btn id="btnLightMode" icon="bi bi-brightness-low-fill" />
+  <Btn id="btnTheme" icon="bi bi-brightness-low-fill" />
   <Btn id="btnMenu" icon="bi bi-list" />
 </nav>
 
 <script>
   import * as common from "../scripts/common";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    var theme = "light";
+
+    if (localStorage.getItem("theme")) {
+      if (localStorage.getItem("theme") == "dark") {
+        var theme = "dark";
+      }
+    } else if (!window.matchMedia) {
+      return false;
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      var theme = "dark";
+    }
+
+    if (theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+    localStorage.setItem("theme", theme);
+  });
 
   const btnHome = document.getElementById("btnHome");
   btnHome?.addEventListener("click", common.redirectHome);
@@ -18,6 +39,21 @@ import Btn from "../components/btn_func.astro";
     document.getElementById("menubg")?.classList.add("showf");
     document.getElementById("menu")?.classList.add("slide-right");
   });
+  const btnTheme = document.getElementById("btnTheme");
+  btnTheme?.addEventListener("click", switchTheme);
+
+  function switchTheme() {    
+    var activeTheme = localStorage.getItem("theme");
+    console.log(activeTheme);
+    
+    if (localStorage.getItem("theme") == "light") {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }
 </script>
 
 <style>
