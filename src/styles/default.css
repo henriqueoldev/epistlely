@@ -73,3 +73,9 @@ i{
     transform: translateX(0%);
   }
 }
+
+@media only screen and (max-width: 720px) {
+    h1{
+      font-size: 1.7rem;
+    }
+  }

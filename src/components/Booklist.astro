@@ -3,6 +3,7 @@ import WorkCard from "../components/WorkCard.astro";
 import books from "../config/books.json";
 ---
 <h1>Works</h1>
+<div class="homeBooks">
   {
     books.map((book) => {
 
@@ -16,3 +17,17 @@ import books from "../config/books.json";
       );
     })
   }
+</div>
+
+<style>
+  .homeBooks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+</style>
+  
