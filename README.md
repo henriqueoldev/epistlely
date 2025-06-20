@@ -35,8 +35,8 @@ Place your book files in **/src/books/yourbook/**. They will be loaded in alphab
 ### 5. Register Your Books
 Register your books in `/src/config/books.json` as follows, so they can be loaded:
 
-"path" is the folder name that contains your .md files, it **must** be inside **/src/books**
-"cover" is the book cover image, it **must** be inside **/public/covers**
+- "path" is the folder name that contains your .md files, it **must** be inside **/src/books**
+- "cover" is the book cover image, it **must** be inside **/public/covers**
 ```json
 [
   {
