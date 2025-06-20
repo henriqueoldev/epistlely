@@ -3,7 +3,8 @@ import authorData from "../config/author.json";
 import Navigation from "../components/Nav.astro";
 import Menu from "../components/Menu.astro";
 ---
-<Menu/>
+
+<Menu />
 <header>
   <div id="headerTitle">
     <h1>{authorData.name}</h1>
@@ -19,6 +20,14 @@ import Menu from "../components/Menu.astro";
     align-items: center;
     padding: 1rem;
     height: 10vh;
+    overflow: hidden;
   }
 
+  @media only screen and (max-width: 720px) {
+    #headerTitle {
+      max-width: 350px;
+      text-overflow: ellipsis !important;
+      font-size: small;
+    }
+  }
 </style>
