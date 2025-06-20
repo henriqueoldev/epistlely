@@ -11,7 +11,7 @@ const { cover, title, description, path } = Astro.props;
   <div class="imgDiv">
     <img src={"/covers/" + cover} alt={title + " Cover"} />
   </div>
-  <div>
+  <div class="wCardContent">
     <h3>{title}</h3>
     <p>{description}</p>
   </div>
@@ -32,6 +32,10 @@ const { cover, title, description, path } = Astro.props;
     transition: all ease-out 0.2s;
     text-decoration: none;
     color: var(--text-color);
+  }
+
+  .wCardContent {
+    width: 100%;
   }
 
   .wCard .imgDiv {
@@ -64,8 +68,11 @@ const { cover, title, description, path } = Astro.props;
       flex-direction: column;
       text-align: justify;
     }
-    .wCard h3{
+    .wCard h3 {
       text-align: center;
+    }
+    .wCardContent h3{
+      margin-bottom: .5rem;
     }
   }
 
