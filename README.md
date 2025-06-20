@@ -1,48 +1,66 @@
-# Astro Starter Kit: Basics
+# Epistlely 📚
 
-```sh
-npm create astro@latest -- --template basics
+Epistlely is an open-source project built with **Astro.js**, designed for authors to publish their works statically using **Markdown**. With a responsive design and easy customization, it provides a simple and efficient way for writers to share their stories. 
+
+## Features
+- **Static Publishing**: Publish your writings using Markdown.
+- **Responsive Design**: Works on most devices
+- **Easy Customization**: Simple config files.
+
+## Getting Started 🚀
+### 1. Clone the Repository
+Open your terminal and run the following command to clone the project:
+
+```bash
+git clone https://github.com/henriqueoldev/epistlely.git
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### 2. Configure Author Information
+Edit the author configuration in `/src/config/author.json`:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```json
+{
+  "name": "Your name",
+  "description": "Your description",
+  "profilepic": "/yourprofilepicture.exts"
+}
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 4. Add Your Book .md Files
+Place your book files in **/src/books/yourbook/**. They will be loaded in alphabetical order, so if you are numbering the files, use the following format:  
+- For fewer than 10 files, name them 01.md to 09.md  
+- For fewer than 100 files, name them 001.md to 099.md  
+- And so on...
 
-## 🧞 Commands
+### 5. Register Your Books
+Register your books in `/src/config/books.json` as follows, so they can be loaded:
 
-All commands are run from the root of the project, from a terminal:
+"path" is the folder name that contains your .md files, it **must** be inside **/src/books**
+"cover" is the book cover image, it **must** be inside **/public/covers**
+```json
+[
+  {
+    "title": "Book name",
+    "description": "Book description",
+    "path": "foldername",
+    "cover": "covername.exts"
+  }
+]
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### 5. Run the Project
+Navigate to the project directory and start the development server:
 
-## 👀 Want to learn more?
+```bash
+cd epistlely
+npm install
+npm run dev
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Contributing
+If you have suggestions or improvements, feel free to open an issue or submit a pull request.
+
+---
+
+## License 📄
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
