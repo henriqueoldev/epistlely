@@ -1,20 +1,20 @@
 [
   {
-    "title": "Lorem Ipsum Dolor",
-    "description": "Anim Lorem enim nisi deserunt ipsum aliqua ullamco officia. Id anim officia ex adipisicing laborum excepteur et dolor proident velit occaecat pariatur exercitation enim. Fugiat occaecat eu non consectetur officia nostrud aliquip non anim id. Laboris aliqua voluptate occaecat elit ut eiusmod Lorem elit enim minim nostrud velit sint. Magna in incididunt dolor excepteur anim ipsum enim cupidatat anim.",
-    "path": "placeholder",
-    "cover": "Placeholder.jpg"
+    "title": "A Discourse Upon the Origin and the Foundation of the Inequality Among Mankind",
+    "description": "Rousseau's work questions the origins of social inequality, contrasting natural differences with those created by human society. He reflects on humanity's shift from independent, simple living to a complex, unequal civilization shaped by social conventions.",
+    "path": "jjr-origin",
+    "cover": "jjr-origin.jpeg"
   },
   {
-    "title": "Lorem Ipsum Dolor",
-    "description": "Anim Lorem enim nisi deserunt ipsum aliqua ullamco officia. Id anim officia ex adipisicing laborum excepteur et dolor proident velit occaecat pariatur exercitation enim. Fugiat occaecat eu non consectetur officia nostrud aliquip non anim id. Laboris aliqua voluptate occaecat elit ut eiusmod Lorem elit enim minim nostrud velit sint. Magna in incididunt dolor excepteur anim ipsum enim cupidatat anim.",
-    "path": "pchd",
-    "cover": "a.jpg"
+    "title": "Quincas Borba",
+    "description": "\"Quincas Borba\" by Machado de Assis follows Rubião, a former professor who inherits a fortune from his friend Quincas Borba. As he adjusts to his wealth, the novel explores themes of friendship, ambition, and the complexities of human relationships, particularly through Rubião's unfulfilled desires and philosophical reflections, especially regarding his feelings for Sophia, his friend's wife. The story delves into the moral implications of wealth and the nature of human connections.",
+    "path": "ma-quincas",
+    "cover": "ma-quincas.jpeg"
   },
   {
-    "title": "Lorem Ipsum Dolor",
-    "description": "Anim Lorem enim nisi deserunt ipsum aliqua ullamco officia. Id anim officia ex adipisicing laborum excepteur et dolor proident velit occaecat pariatur exercitation enim. Fugiat occaecat eu non consectetur officia nostrud aliquip non anim id. Laboris aliqua voluptate occaecat elit ut eiusmod Lorem elit enim minim nostrud velit sint. Magna in incididunt dolor excepteur anim ipsum enim cupidatat anim.",
-    "path": "pchd",
-    "cover": "Placeholder.jpg"
+    "title": "The Prince",
+    "description": "\"The Prince\" by Machiavelli is a 16th-century political treatise that explores how rulers can maintain power through manipulation and realpolitik. It examines different types of principalities, the traits of successful leaders, and the complexities of governance, emphasizing the advantages of hereditary rule and the challenges of adapting to changing political landscapes.",
+    "path": "nm-prince",
+    "cover": "nm-prince.jpg"
   }
 ]
